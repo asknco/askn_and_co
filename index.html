@@ -22,17 +22,60 @@
   <meta property="twitter:description" content="A full-service Chartered Accountants firm specialising in Tax Litigation, GST, Audit, International Tax, and Business Advisory.">
   <meta property="twitter:image" content="https://asknco.com/og-image.jpg">
 
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3B6NZ2B776"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3B6NZ2B776');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://asknco.com/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' font-family='serif'>A</text></svg>">
   <link rel="stylesheet" href="/src/styles.css">
+
+  <!-- Structured Data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    "name": "ASKN & Co. LLP",
+    "alternateName": "ASKN and Co LLP Chartered Accountants",
+    "url": "https://asknco.com",
+    "telephone": "+919177638662",
+    "email": "contact@asknco.com",
+    "description": "A full-service Chartered Accountants firm specialising in Tax Litigation, GST, Audit, International Tax, and Business Advisory — serving businesses and HNIs from Hyderabad.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "C1, 3rd Floor, Spaces & More Business Park - M2, Opp. Durgam Cheruvu Park, Madhapur",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500081",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "10:00",
+        "closes": "19:00"
+      }
+    ],
+    "areaServed": "India",
+    "priceRange": "$$"
+  }
+  </script>
 </head>
 <body>
 
   <!-- ═══════════════ NAVIGATION ═══════════════ -->
   <nav id="navbar">
     <div class="nav-inner container">
-      <a href="#" class="nav-logo">ASKN &amp; Co. LLP</a>
+      <a href="#" class="nav-logo" aria-label="ASKN and Co LLP - Home">ASKN &amp; Co. LLP</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
@@ -42,7 +85,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#contact" class="btn nav-cta">Book Free Consultation</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -66,9 +109,8 @@
   <section class="stats-bar">
     <div class="container stats-row">
       <div class="stat"><span class="stat-num">25+</span><span class="stat-txt">Years of Practice</span></div>
-      <div class="stat"><span class="stat-num">9</span><span class="stat-txt">Practice Areas</span></div>
       <div class="stat"><span class="stat-num">Pan-India</span><span class="stat-txt">Appellate Representation</span></div>
-      <div class="stat"><span class="stat-num">5</span><span class="stat-txt">Partners &bull; 1 Founding Partner</span></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-txt">Partners</span></div>
     </div>
   </section>
 
@@ -80,12 +122,7 @@
         <div class="brand-rule brand-rule--center"></div>
         <p>ASKN &amp; Co. LLP is a full-service Chartered Accountants firm headquartered in the Madhapur, Hyderabad. With over two decades of practice, the firm offers end-to-end expertise spanning Tax Planning and Litigation, GST Advisory, Statutory Audits, Company Law, International Tax, and Virtual CFO services.</p>
         <p>The firm is built on a commitment to precision, confidentiality, and outcome-driven advisory — serving individuals, family offices, and corporates alike.</p>
-        <div class="cred-grid">
-          <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Registered with ICAI</span></div>
-          <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>GST Practitioner</span></div>
-          <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>ITAT Registered Representative</span></div>
-          <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>IND AS &amp; IGAAP Compliant</span></div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -136,7 +173,7 @@
         </div>
       </div>
       <div class="center" style="margin-top:3rem">
-        <a href="https://wa.me/919177638662" target="_blank" class="btn btn-outline-white btn-icon">
+        <a href="https://wa.me/919177638662?text=Hello%20ASKN%20%26%20Co.%20LLP%2C%20I%20need%20assistance%20with%20tax%20litigation." target="_blank" rel="noopener" class="btn btn-outline-white btn-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           WhatsApp Us for Litigation Support
         </a>
@@ -249,25 +286,25 @@
         <div class="brand-rule"></div>
       </div>
       <div class="journal-grid">
-        <article class="j-card">
+        <article class="j-card" data-modal="tax-strategy">
           <div class="j-cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg> TAX STRATEGY <span class="arrow-icon">↗</span></div>
           <h3>The New Tax Regime: A Strategic Analysis for FY 2025-26</h3>
           <p>A comprehensive breakdown of the revised tax slabs and their implications for salaried individuals and business owners.</p>
           <span class="j-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> April 2026</span>
         </article>
-        <article class="j-card" id="journal-modal-trigger">
+        <article class="j-card" data-modal="gst-itc">
           <div class="j-cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg> GST <span class="arrow-icon">↗</span></div>
           <h3>GST Compliance: Common Errors in ITC Claims</h3>
           <p>Identifying the most frequent Input Tax Credit errors that trigger GST audits and how to avoid them.</p>
           <span class="j-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> March 2026</span>
         </article>
-        <article class="j-card">
+        <article class="j-card" data-modal="company-law">
           <div class="j-cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg> COMPANY LAW <span class="arrow-icon">↗</span></div>
           <h3>Annual Compliance Calendar for Private Companies</h3>
           <p>A month-by-month guide to mandatory filings and deadlines for Indian private limited companies.</p>
           <span class="j-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> February 2026</span>
         </article>
-        <article class="j-card">
+        <article class="j-card" data-modal="transfer-pricing">
           <div class="j-cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg> INTERNATIONAL TAX <span class="arrow-icon">↗</span></div>
           <h3>Transfer Pricing Documentation: Best Practices</h3>
           <p>Essential documentation strategies for cross-border transactions to withstand regulatory scrutiny.</p>
@@ -316,49 +353,74 @@
 
   <!-- ═══════════════ CONTACT ═══════════════ -->
   <section class="section section--navy" id="contact">
-    <div class="container contact-layout">
-      <div class="contact-info-wrap">
-        <p class="section-overline" style="color: var(--color-accent);">GET IN TOUCH</p>
-        <h2 class="section-title">Begin the Conversation</h2>
-        <div class="brand-rule"></div>
-        <div class="info-row">
-          <div><strong>OFFICE</strong><p>Madhapur, Hyderabad, Telangana 500081</p></div>
-        </div>
-        <div class="info-row">
-          <div><strong>PHONE</strong><p>+91 9177638662</p></div>
-        </div>
-        <div class="info-row">
-          <div><strong>EMAIL</strong><p><a href="mailto:contact@asknco.com">contact@asknco.com</a></p></div>
-        </div>
-        <div class="info-row">
-          <div><strong>HOURS</strong><p>Mon &ndash; Sat, 10:00 AM &ndash; 7:00 PM</p></div>
+    <div class="container">
+      <div class="contact-top">
+        <div>
+          <p class="section-overline" style="color: var(--color-accent);">GET IN TOUCH</p>
+          <h2 class="section-title">Begin the Conversation</h2>
+          <div class="brand-rule"></div>
         </div>
       </div>
-      
-      <div class="contact-form-wrap">
-        <form id="contactForm" class="grid-form" action="https://formspree.io/f/xdoqbnpa" method="POST">
-          <div class="field"><label for="cName" style="color: rgba(255,255,255,0.7);">FULL NAME *</label><input type="text" id="cName" name="name" required></div>
-          <div class="field"><label for="cEmail" style="color: rgba(255,255,255,0.7);">EMAIL *</label><input type="email" id="cEmail" name="email" required></div>
-          <div class="field"><label for="cPhone" style="color: rgba(255,255,255,0.7);">PHONE</label><input type="tel" id="cPhone" name="phone"></div>
-          <div class="field">
-            <label for="cService" style="color: rgba(255,255,255,0.7);">SERVICE REQUIRED</label>
-            <select id="cService" name="service">
-              <option>Select...</option>
-              <option>Income Tax Litigation</option>
-              <option>GST Litigation</option>
-              <option>Tax Advisory</option>
-              <option>Audit &amp; Assurance</option>
-              <option>GST Services</option>
-              <option>Company Law</option>
-              <option>Virtual CFO</option>
-              <option>Other</option>
-            </select>
+      <div class="contact-layout">
+        <div class="contact-info-wrap">
+          <div class="info-row">
+            <div><strong>OFFICE</strong><p>C1, 3rd Floor, Spaces &amp; More Business Park - M2,<br>Opp. Durgam Cheruvu Park, Madhapur,<br>Hyderabad, Telangana 500081</p></div>
           </div>
-          <div class="field full-span"><label for="cMsg" style="color: rgba(255,255,255,0.7);">MESSAGE</label><textarea id="cMsg" name="message" rows="4"></textarea></div>
-          <div class="full-span">
-            <button type="submit" class="btn btn-brand">Send Enquiry</button>
+          <div class="info-row">
+            <div><strong>PHONE</strong><p><a href="tel:+919177638662">+91 91776 38662</a><br><a href="tel:+919849541701">+91 98495 41701</a></p></div>
           </div>
-        </form>
+          <div class="info-row">
+            <div><strong>EMAIL</strong><p><a href="mailto:office@asknco.com">office@asknco.com</a></p></div>
+          </div>
+          <div class="info-row">
+            <div><strong>HOURS</strong><p>Mon &ndash; Sat, 10:00 AM &ndash; 7:00 PM</p></div>
+          </div>
+          <a href="https://maps.app.goo.gl/NuSPtQZTkounELma9" target="_blank" rel="noopener" class="btn btn-outline-white btn-icon map-dir-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Get Directions
+          </a>
+        </div>
+
+        <div class="contact-map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2308020654946!2d78.37805!3d17.44721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93f0a3d9db9b%3A0x1a7ea2e1fbb57b24!2sSpaces%20%26%20More%20Business%20Park%20M2!5e0!3m2!1sen!2sin!4v1716000000000!5m2!1sen!2sin"
+            width="100%" height="100%"
+            style="border:0; border-radius:4px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="ASKN &amp; Co. LLP Office Location">
+          </iframe>
+        </div>
+
+        <div class="contact-form-wrap">
+          <form id="contactForm" class="grid-form" action="https://formspree.io/f/xdoqbnpa" method="POST">
+            <div class="field"><label for="cName" style="color: rgba(255,255,255,0.7);">FULL NAME *</label><input type="text" id="cName" name="name" required></div>
+            <div class="field"><label for="cEmail" style="color: rgba(255,255,255,0.7);">EMAIL *</label><input type="email" id="cEmail" name="email" required></div>
+            <div class="field"><label for="cPhone" style="color: rgba(255,255,255,0.7);">PHONE</label><input type="tel" id="cPhone" name="phone"></div>
+            <div class="field">
+              <label for="cService" style="color: rgba(255,255,255,0.7);">SERVICE REQUIRED</label>
+              <select id="cService" name="service">
+                <option value="">Select...</option>
+                <option>Income Tax Litigation</option>
+                <option>GST Litigation</option>
+                <option>Tax Advisory</option>
+                <option>Audit &amp; Assurance</option>
+                <option>GST Services</option>
+                <option>Company Law</option>
+                <option>International Tax</option>
+                <option>Payroll &amp; HR Compliance</option>
+                <option>Business Valuation</option>
+                <option>Virtual CFO &amp; Bookkeeping</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field full-span"><label for="cMsg" style="color: rgba(255,255,255,0.7);">MESSAGE</label><textarea id="cMsg" name="message" rows="4"></textarea></div>
+            <div class="full-span">
+              <button type="submit" class="btn btn-brand">Send Enquiry</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -381,11 +443,11 @@
       </div>
       <div class="footer-col">
         <h4>COMPANY</h4>
-        <ul><li><a href="#why-us">Why Choose Us</a></li><li><a href="#team">Our Team</a></li><li><a href="#about">Careers</a></li><li><a href="#contact">Contact</a></li></ul>
+        <ul><li><a href="#why-us">Why Choose Us</a></li><li><a href="#team">Our Team</a></li><li><a href="#contact">Contact</a></li></ul>
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>&copy; ASKN &amp; Co. LLP.</p>
+      <p>&copy; <span id="copyrightYear">2026</span> ASKN &amp; Co. LLP. All rights reserved.</p>
       <p class="footer-disclaimer">This website is for informational purposes only and does not constitute professional advice.</p>
     </div>
   </footer>
@@ -394,17 +456,60 @@
   <div class="modal-overlay" id="journalModal">
     <div class="modal-content">
       <button class="modal-close" id="modalClose">&times;</button>
-      <div class="modal-body">
-        <p class="section-overline">GST</p>
-        <h2 class="section-title">GST Compliance: Common Errors in ITC Claims</h2>
-        <p class="modal-date">March 2026</p>
-        <div class="brand-rule"></div>
-        <p>Input Tax Credit (ITC) claims remain the single largest source of GST disputes in India. Our audit practice has identified recurring patterns that consistently trigger notices from GST authorities.</p>
-        <p>The most common errors include: claiming ITC on blocked credits under Section 17(5), timing mismatches between GSTR-2B and books of accounts, and failure to reverse ITC on non-payment within 180 days as required under Section 16(2).</p>
-        <p>We recommend implementing a monthly ITC reconciliation protocol that cross-references GSTR-2B data with purchase registers and payment records.</p>
+      <div class="modal-body" id="modalBody">
+        <!-- Content injected by JS -->
       </div>
     </div>
   </div>
+
+  <!-- Modal content templates (hidden) -->
+  <template id="tpl-tax-strategy">
+    <p class="section-overline">TAX STRATEGY</p>
+    <h2 class="section-title">The New Tax Regime: A Strategic Analysis for FY 2025-26</h2>
+    <p class="modal-date">April 2026</p>
+    <div class="brand-rule"></div>
+    <p>The Finance Act 2025 has made the New Tax Regime the default for all individual taxpayers. Understanding the revised slabs and their implications is now a strategic necessity, not just a compliance exercise.</p>
+    <p>For salaried individuals, the enhanced standard deduction of ₹75,000 under the new regime — combined with the zero-tax threshold up to ₹7 lakh — makes it more attractive for most employees earning below ₹15 lakh annually.</p>
+    <p>Business owners and HNIs with significant allowable deductions (80C, HRA, business expenses) should still run a comparison. Our tax team recommends an annual regime review before March 31 each year to lock in the optimal position.</p>
+  </template>
+
+  <template id="tpl-gst-itc">
+    <p class="section-overline">GST</p>
+    <h2 class="section-title">GST Compliance: Common Errors in ITC Claims</h2>
+    <p class="modal-date">March 2026</p>
+    <div class="brand-rule"></div>
+    <p>Input Tax Credit (ITC) claims remain the single largest source of GST disputes in India. Our audit practice has identified recurring patterns that consistently trigger notices from GST authorities.</p>
+    <p>The most common errors include: claiming ITC on blocked credits under Section 17(5), timing mismatches between GSTR-2B and books of accounts, and failure to reverse ITC on non-payment within 180 days as required under Section 16(2).</p>
+    <p>We recommend implementing a monthly ITC reconciliation protocol that cross-references GSTR-2B data with purchase registers and payment records.</p>
+  </template>
+
+  <template id="tpl-company-law">
+    <p class="section-overline">COMPANY LAW</p>
+    <h2 class="section-title">Annual Compliance Calendar for Private Companies</h2>
+    <p class="modal-date">February 2026</p>
+    <div class="brand-rule"></div>
+    <p>Every private limited company in India faces a structured calendar of mandatory ROC filings, board meetings, and statutory audits. Missing deadlines attracts additional fees and, in serious cases, director disqualification.</p>
+    <p>Key milestones include: holding the Annual General Meeting within 6 months of the financial year end, filing MGT-7 (annual return) and AOC-4 (financial statements) by November 29, and maintaining statutory registers including minutes books and share transfer records.</p>
+    <p>Our Company Law team provides a calendar-driven compliance service ensuring no filing is missed, with automated reminders and partner-reviewed submissions for every ROC form.</p>
+  </template>
+
+  <template id="tpl-transfer-pricing">
+    <p class="section-overline">INTERNATIONAL TAX</p>
+    <h2 class="section-title">Transfer Pricing Documentation: Best Practices</h2>
+    <p class="modal-date">January 2026</p>
+    <div class="brand-rule"></div>
+    <p>Transfer pricing documentation is no longer a back-office exercise — it is the first line of defence in any international tax audit. The Income Tax Act requires taxpayers with cross-border transactions to maintain a contemporaneous report benchmarking their intercompany pricing against arm's length standards.</p>
+    <p>The most effective documentation packages include a robust economic analysis, a functional and risk profile of each entity, and a clear benchmarking study using comparable uncontrolled transactions from recognised databases.</p>
+    <p>Our International Tax practice assists businesses in preparing TP documentation that is audit-ready, commercially coherent, and aligned with the OECD BEPS Action 13 framework.</p>
+  </template>
+
+  <!-- ═══════════════ FLOATING WHATSAPP ═══════════════ -->
+  <a href="https://wa.me/919177638662?text=Hello%20ASKN%20%26%20Co.%20LLP%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener" class="wa-float" id="waFloat" aria-label="Chat on WhatsApp">
+    <span class="wa-tooltip">Chat with us</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+  </a>
 
   <script src="/src/app.js"></script>
 </body>
