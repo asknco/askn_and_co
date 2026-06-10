@@ -17,10 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const links  = document.getElementById('navLinks');
   if (toggle && links) {
     toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
+      const isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
     });
     links.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => links.classList.remove('open'));
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 
@@ -82,10 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const hraVal  = num('hra');
 
     // Update UI spans
-    document.getElementById('incomeVal').textContent = gross.toLocaleString('en-IN');
-    document.getElementById('ded80cVal').textContent = c80.toLocaleString('en-IN');
-    document.getElementById('ded80dVal').textContent = d80.toLocaleString('en-IN');
-    document.getElementById('hraVal').textContent = hraVal.toLocaleString('en-IN');
+    const incomeValEl = document.getElementById('incomeVal');
+    const ded80cValEl = document.getElementById('ded80cVal');
+    const ded80dValEl = document.getElementById('ded80dVal');
+    const hraValEl = document.getElementById('hraVal');
+    if (incomeValEl) incomeValEl.textContent = gross.toLocaleString('en-IN');
+    if (ded80cValEl) ded80cValEl.textContent = c80.toLocaleString('en-IN');
+    if (ded80dValEl) ded80dValEl.textContent = d80.toLocaleString('en-IN');
+    if (hraValEl) hraValEl.textContent = hraVal.toLocaleString('en-IN');
 
     // ── Old Regime ──
     const oldSD  = 50000; // standard deduction
@@ -122,7 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function num(id) { return Math.max(0, parseFloat(document.getElementById(id).value) || 0); }
+  function num(id) {
+    const el = document.getElementById(id);
+    return el ? Math.max(0, parseFloat(el.value) || 0) : 0;
+  }
 
   function fmt(v) {
     return '₹' + Math.round(v).toLocaleString('en-IN');
@@ -186,42 +197,56 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.textContent = 'Sent — Thank You!';
           form.reset();
         } else {
-          btn.textContent = 'Oops! Error.';
+          btn.textContent = 'Could not send. Please try again.';
         }
       } catch (error) {
-        btn.textContent = 'Oops! Error.';
+        btn.textContent = 'Network error. Please check your connection.';
       }
 
       setTimeout(() => {
         btn.innerHTML = originalText;
         btn.disabled = false;
         btn.style.opacity = '1';
-      }, 3000);
+      }, 3500);
     });
   }
 
-  /* ─── 7. Modal Handler ─── */
-  const modalTrigger = document.getElementById('journal-modal-trigger');
+  /* ─── 7. Journal Modal Handler (all 4 cards) ─── */
   const modalOverlay = document.getElementById('journalModal');
-  const modalClose = document.getElementById('modalClose');
+  const modalBody    = document.getElementById('modalBody');
+  const modalClose   = document.getElementById('modalClose');
 
-  if (modalTrigger && modalOverlay && modalClose) {
-    modalTrigger.addEventListener('click', () => {
-      modalOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
+  function openModal(templateId) {
+    const tpl = document.getElementById('tpl-' + templateId);
+    if (!tpl || !modalBody) return;
+    modalBody.innerHTML = '';
+    modalBody.appendChild(tpl.content.cloneNode(true));
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 
-    modalClose.addEventListener('click', () => {
-      modalOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    });
+  function closeModal() {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
 
+  document.querySelectorAll('.j-card[data-modal]').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => openModal(card.dataset.modal));
+  });
+
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalOverlay) {
     modalOverlay.addEventListener('click', e => {
-      if (e.target === modalOverlay) {
-        modalOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
+      if (e.target === modalOverlay) closeModal();
     });
   }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* ─── 8. Dynamic Copyright Year ─── */
+  const yearEl = document.getElementById('copyrightYear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 });
