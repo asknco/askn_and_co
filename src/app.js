@@ -139,37 +139,46 @@ document.addEventListener('DOMContentLoaded', () => {
     return '₹' + Math.round(v).toLocaleString('en-IN');
   }
 
+  /* Surcharge on income-tax (marginal relief on surcharge not modelled) */
+  function surchargeRate(income, cap) {
+    if (income > 50000000) return cap;   // above 5 Cr: 37% old, 25% new
+    if (income > 20000000) return 0.25;
+    if (income > 10000000) return 0.15;
+    if (income > 5000000)  return 0.10;
+    return 0;
+  }
+
   /* Old Regime Slabs (FY 25-26) */
-  function oldRegime(ti) {
-    if (ti <= 500000) return 0; // 87A rebate
+  function oldRegime(income) {
+    if (income <= 500000) return 0; // 87A rebate
+    let ti = income;
     let t = 0;
     // 0-2.5L = 0%, 2.5-5L = 5%, 5-10L = 20%, 10L+ = 30%
     if (ti > 1000000) { t += (ti - 1000000) * 0.30; ti = 1000000; }
     if (ti > 500000)  { t += (ti - 500000)  * 0.20; ti = 500000;  }
     if (ti > 250000)  { t += (ti - 250000)  * 0.05; }
-    return t * 1.04; // + 4% cess
+    return t * (1 + surchargeRate(income, 0.37)) * 1.04; // + surcharge + 4% cess
   }
 
   /* New Regime Slabs (FY 25-26 – Budget 2025) */
   function newRegime(income) {
-    if (income <= 700000) return 0; // 87A rebate (new regime)
+    if (income <= 1200000) return 0; // 87A rebate (new regime)
 
     let ti = income;
     let t = 0;
 
-    // 0-3L = 0%, 3-7L = 5%, 7-10L = 10%, 10-12L = 15%, 12-15L = 20%, 15L+ = 30%
-    if (ti > 1500000) { t += (ti - 1500000) * 0.30; ti = 1500000; }
-    if (ti > 1200000) { t += (ti - 1200000) * 0.20; ti = 1200000; }
-    if (ti > 1000000) { t += (ti - 1000000) * 0.15; ti = 1000000; }
-    if (ti > 700000)  { t += (ti - 700000)  * 0.10; ti = 700000;  }
-    if (ti > 300000)  { t += (ti - 300000)  * 0.05; }
+    // 0-4L = 0%, 4-8L = 5%, 8-12L = 10%, 12-16L = 15%, 16-20L = 20%, 20-24L = 25%, 24L+ = 30%
+    if (ti > 2400000) { t += (ti - 2400000) * 0.30; ti = 2400000; }
+    if (ti > 2000000) { t += (ti - 2000000) * 0.25; ti = 2000000; }
+    if (ti > 1600000) { t += (ti - 1600000) * 0.20; ti = 1600000; }
+    if (ti > 1200000) { t += (ti - 1200000) * 0.15; ti = 1200000; }
+    if (ti > 800000)  { t += (ti - 800000)  * 0.10; ti = 800000;  }
+    if (ti > 400000)  { t += (ti - 400000)  * 0.05; }
 
-    // Marginal relief: if income is just above 7L, tax ≤ excess over 7L
-    if (income > 700000 && income <= 730000) {
-      t = Math.min(t, income - 700000);
-    }
+    // Marginal relief: just above 12L, tax ≤ excess over 12L
+    t = Math.min(t, income - 1200000);
 
-    return t * 1.04; // + 4% cess
+    return t * (1 + surchargeRate(income, 0.25)) * 1.04; // + surcharge + 4% cess
   }
 
 
@@ -211,41 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ─── 7. Journal Modal Handler (all 4 cards) ─── */
-  const modalOverlay = document.getElementById('journalModal');
-  const modalBody    = document.getElementById('modalBody');
-  const modalClose   = document.getElementById('modalClose');
-
-  function openModal(templateId) {
-    const tpl = document.getElementById('tpl-' + templateId);
-    if (!tpl || !modalBody) return;
-    modalBody.innerHTML = '';
-    modalBody.appendChild(tpl.content.cloneNode(true));
-    modalOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    modalOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('.j-card[data-modal]').forEach(card => {
-    card.style.cursor = 'pointer';
-    card.addEventListener('click', () => openModal(card.dataset.modal));
-  });
-
-  if (modalClose) modalClose.addEventListener('click', closeModal);
-  if (modalOverlay) {
-    modalOverlay.addEventListener('click', e => {
-      if (e.target === modalOverlay) closeModal();
-    });
-  }
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeModal();
-  });
-
-  /* ─── 8. Dynamic Copyright Year ─── */
+  /* ─── 7. Dynamic Copyright Year ─── */
   const yearEl = document.getElementById('copyrightYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
