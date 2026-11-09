@@ -43,9 +43,11 @@ SERVICES = [
     ("gst-consultant-hyderabad", "GST Services"),
     ("statutory-audit-hyderabad", "Audit &amp; Assurance"),
     ("itr-filing-tax-planning-hyderabad", "ITR Filing &amp; Tax Planning"),
-    ("company-registration-roc-compliance-hyderabad", "Company Law &amp; ROC"),
+    ("company-registration-roc-compliance-hyderabad", "Company Incorporation &amp; ROC"),
     ("accounting-bookkeeping-virtual-cfo-hyderabad", "Accounting &amp; Virtual CFO"),
     ("international-tax-transfer-pricing-hyderabad", "International Tax"),
+    ("bank-loan-project-finance-hyderabad", "Bank Loans &amp; Project Finance"),
+    ("government-subsidies-incentives-hyderabad", "Subsidies &amp; Incentives"),
 ]
 
 ICON_BOOK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>'
